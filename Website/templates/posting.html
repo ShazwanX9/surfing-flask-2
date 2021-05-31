@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} Feed {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posting.css') }}">
+    <!-- <meta http-equiv="refresh" content="30"> -->
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div class="tableFixHead">
+            <table>
+                <thead><tr><th>Community Chat</th></tr></thead>
+                {% for infoIndex, info in enumerate(messages) %}
+                <tr>
+                    <td class="data-preview">
+                        <textarea disabled>{{ infoIndex+1 }}. {{ info.name }} : {{ info.data }} </textarea>
+                        {% if user.id == info.user_id %}
+                            <button onclick="deleteFeed( {{ info.id }} )">&times;</button>
+                        {% else %}
+                            <button onclick="deleteFeed( {{ info.id }} )" disabled>&times;</button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <form method="POST" class="chat-input">
+            <div class="textarea-bg">
+                <textarea type="text" name="text" rows="5" placeholder="Type a message" required onfocus="this.innerHTML='{{ onFocusText }}'"></textarea>
+            </div>
+            <input type="submit" value="Send">
+        </form>        
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block script %}
+    <script>
+        function deleteFeed(feedId) {
+            fetch("/delete-feed", {
+                method: "POST",
+                body: JSON.stringify({ feedId: feedId }),
+            }).then((_res) => {
+                window.location.href = "/posting";
+            });
+        }
+    </script>
+{% endblock %}

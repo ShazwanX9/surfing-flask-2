@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up Registration{% endblock %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/login.css">
+{% endblock %}
+
+{% block body %}
+    <div class="flex-container">
+    
+        <form class="loginForm" action="#" method="post">
+            <div class="subForm">
+                <h1>SignUp</h1>
+                <input type="text" name="email" id="email" placeholder="Enter your Email" required>
+                <input type="text" name="username" id="username" placeholder="Enter your Username" required>
+                <input type="text" name="phoneNum" id="phoneNum" placeholder="Enter your Phone Number" required>
+                <input type="password" name="psw" id="psw" placeholder="Enter your password" required>
+                <input type="password" name="psw-repeat" id="psw-repeat" placeholder="Repeat your password" required>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" id="remember">
+                    Remember me? 
+                </label>
+				<br>
+                <input type="submit" value="Sign Up Now">
+            </div>
+            
+            <div class="subForm">
+                <p>Already have an account? <a href="/login">Sign In</a>.</p>
+            </div>
+            
+            <p>Get the app.</p>
+            <a href="" ><img src="../static/assets/login/appStore.png"></a>
+            <a href="" ><img src="../static/assets/login/playStore.png"></a>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,118 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+    margin: auto;
+    padding: 0%;
+    background: url("../assets/LandscapeBG/LoginBG.jpg") no-repeat;
+    background-size: cover;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-img {
+    width: 20rem;
+    min-width: 20rem;
+    height: 36rem;
+    min-height: 36rem;
+    flex: 0 0 300px;
+    margin: 0 20px;
+    align-self:center;
+}
+
+@media screen and (max-width: 750px){
+    .display-img {
+        display: none;
+    }
+}
+
+.loginForm {
+    background: rgba(61, 37, 83, 0.4);
+    width: 300px;
+    height: initial;
+    flex: 0 0 300px;
+    padding: 30px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.loginForm h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.loginForm input[type=text], input[type=password] {
+    width: 80%;
+    padding: 14px 20px;
+    margin: 10px auto;
+    display: inline-block;
+    border: violet;
+    text-align: center;
+    background-color: rgba(249, 210, 249, 0.8);
+    border-radius: 36px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.loginForm input[type=text]:hover, input[type=password]:hover {
+    width: 85%;
+    outline: none;
+    background-color: white;
+}
+
+.loginForm input[type=text]:focus, input[type=password]:focus {
+    width: 80%;
+    outline: none;
+    text-align: start;
+    background-color: white;
+    border-radius: 0px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.loginForm input[type=submit] {
+    display: block;
+    background-color: yellowgreen;
+    color: white;
+    border: 3px solid teal;
+    padding: 3px 10px;
+    margin: 10px auto;
+    width: 40%;
+    border-radius: 36px;
+    cursor: pointer;
+    opacity: 0.9;
+    text-align: center;
+    transition: 0.25;
+}
+
+.loginForm input[type=submit]:hover {
+    opacity: 1;
+    color: white;
+    background-color: yellowgreen;
+    border: 3px solid white;
+}
+
+.loginForm p, .loginForm label {
+    display: block;
+    color:white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.loginForm img {
+    display: inline-block;
+    width: 130px;
+    height: 43px;
+}
+
+.subForm {
+    background-color: rgba(61, 37, 83, 0.3);
+    margin: 10px;
+    padding: 3px 10px;
+}

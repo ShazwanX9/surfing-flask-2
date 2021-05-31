@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block head %} <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> {% endblock %}
+{% block title %} {{user.username}}'s homepage {% endblock %}
+
+{% block body %}
+    <div class="flex-container">
+        <img src="../static/assets/PotraitBG/HomeBG/portrait1.jpg" class="display-img" id="manip-img">
+
+        <div id="card">
+            <h1>{{user.username}}</h1>
+            <div class="image-crop">
+                {% if gender == "male" %}
+                    <img id="avatar" src="/static/assets/Home/man-300x300.png"></img>
+                {% elif gender == "female" %}
+                    <img id="avatar" src="/static/assets/Home/woman-300x300.png"></img>
+                {% else %}
+                    <img id="avatar" src="/static/assets/Home/wo-300x300.png"></img>
+                {% endif %}
+            </div>
+            <div id="bio">
+                <p> Email: {{ user.email }} <hr> </p>
+                <br>
+                <p> Phone Number: {{ user.phoneNum }} <hr> </p>
+                <br>
+                <p> Hey I'm {{ user.username }}! and I'm still new in this! <hr> </p>
+            </div>
+            <div id="stats">
+                <div class="col">
+                    <button class="stat">{{ randrange(1000) }}</button>
+                    <label class="label">Posts</label>
+                </div>
+                <div class="col">
+                    <button class="stat">{{ randrange(1000) }}</button>
+                    <label class="label">Followers</label>
+                </div>
+                <div class="col">
+                    <button class="stat">{{ randrange(1000) }}</button>
+                    <label class="label">Following</label>
+                </div>
+            </div>
+
+            <div id="buttons">
+                <button id="buttons-follow">Follow</button>
+                <button id="buttons-msg">Message</button>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block script %}
+    <script>
+        var image = document.getElementById("manip-img");
+        var currentPos = 0;
+        var images = [
+                        "../static/assets/PotraitBG/HomeBG/portrait1.jpg", 
+                        "../static/assets/PotraitBG/HomeBG/portrait2.jpg", 
+                        "../static/assets/PotraitBG/HomeBG/portrait3.jpg"
+                    ]
+
+        function volgendefoto() {
+            if (++currentPos >= images.length)
+                currentPos = 0;
+
+            image.src = images[currentPos];
+        }
+        setInterval(volgendefoto, 3000);
+    </script>
+{% endblock %}

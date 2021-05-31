@@ -1,0 +1,45 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+    margin: auto;
+    padding: 0%;
+    background: url("../assets/LandscapeBG/myBG.jpg") right top no-repeat;
+    background-size: cover;
+	overflow-x: hidden;
+}
+
+#card {
+	background-color: rgba(48, 1, 40, 0.4);
+	height: auto;
+	width: 350px;
+    min-width: 350px;
+	border-radius: 25px;
+	padding-bottom: 1px;
+	box-shadow: 2px 2px 5px #4069e2;
+}
+
+.stat {
+	width: 3rem;
+	font-size: 25px;
+	margin: 0;
+	background-color: rgba(145, 7, 133, 0.8);
+}
+
+.col label {
+    color: #ffffff;
+}
+
+#buttons-love {
+	background-color: #ff000d;
+	color: #e6ebee;
+}
+
+#buttons-love:hover {
+	color: #ff000d;
+	background-color: #e6ebee;
+}

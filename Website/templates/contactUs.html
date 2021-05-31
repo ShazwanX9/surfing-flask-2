@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block head %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/me.css') }}">
+{% endblock %}
+{% block title %} {{ myName }}'s Page {% endblock %}
+
+{% block body %}
+    <div class="flex-container">
+        <img src="../static/assets/PotraitBG/MyBG/portrait1.jpg" class="display-img" id="manip-img">
+
+        <div id="card">
+            <h1>{{ myName }}</h1>
+            <div class="image-crop">
+                <img id="avatar" src="/static/assets/Home/me-300x300.png"></img>
+            </div>
+            <div id="bio">
+                <p> Email: {{ myEmail }} <hr> </p> <br>
+                <p> Phone Number: {{ myPhone }} <hr> </p> <br>
+                <p> Hey {{ user.username }}, What's up? Interested? <hr> </p>
+            </div>
+            <div id="stats">
+                <div class="col">
+                    <button class="stat">{{ randrange(1,9) }}k</button>
+                    <label class="label">Posts</label>
+                </div>
+                <div class="col">
+                    <button class="stat">{{ randrange(1,9) }}M</button>
+                    <label class="label">Followers</label>
+                </div>
+                <div class="col">
+                    <button class="stat">{{ randrange(1,9) }}k</button>
+                    <label class="label">Following</label>
+                </div>
+            </div>
+
+            <div id="buttons">
+                <button id="buttons-love">❤ Love</button>
+                <button id="buttons-msg">Message</button>
+            </div>   
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block script %}
+    <script>
+        var image = document.getElementById("manip-img");
+        var currentPos = 0;
+        var images = [
+                    "../static/assets/PotraitBG/MyBG/portrait1.jpg", 
+                    "../static/assets/PotraitBG/MyBG/portrait2.jpg",
+                    "../static/assets/PotraitBG/MyBG/portrait3.jpg" 
+                    ]
+
+        function volgendefoto() {
+            if (++currentPos >= images.length)
+                currentPos = 0;
+
+            image.src = images[currentPos];
+        }
+        setInterval(volgendefoto, 3000);
+    </script>
+{% endblock %}

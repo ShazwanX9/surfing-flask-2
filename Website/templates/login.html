@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Login Authentication{% endblock %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/login.css">
+{% endblock %}
+
+{% block body %}
+    <div class="flex-container">
+        <img src="../static/assets/PotraitBG/LoginBG/portrait1.jpg" class="display-img" id="manip-img">
+    
+        <form class="loginForm" action="#" method="post">
+            <div class="subForm">
+                <h1>Login</h1>
+                <input type="text" name="text" id="text" placeholder="Phone, Username or Email" required>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" id="remember">
+                    Remember me? 
+                </label>
+                <br>
+                <input type="submit" value="Login">
+                <a href="#">Forgot Your Password?</a>
+            </div>
+            
+            <div class="subForm">
+                <p>Don't have an account? <a href="/signUp">Sign Up</a>.</p>
+            </div>
+            
+            <p>Get the app.</p>
+            <a href="" ><img src="../static/assets/login/appStore.png"></a>
+            <a href="" ><img src="../static/assets/login/playStore.png"></a>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var image = document.getElementById("manip-img");
+        var currentPos = 0;
+        var images = [
+                        "../static/assets/PotraitBG/LoginBG/portrait1.jpg", 
+                        "../static/assets/PotraitBG/LoginBG/portrait2.jpg", 
+                        "../static/assets/PotraitBG/LoginBG/portrait3.jpg"
+                    ]
+
+        function volgendefoto() {
+            if (++currentPos >= images.length)
+                currentPos = 0;
+
+            image.src = images[currentPos];
+        }
+        setInterval(volgendefoto, 3000);
+    </script>
+{% endblock %}
+
+{% block footer %}{% endblock %}

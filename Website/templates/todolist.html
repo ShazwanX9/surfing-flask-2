@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} To Do List {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posting.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div>
+        <div class="tableFixHead">
+            <table>
+                <thead><tr><th>To Do List</th></tr></thead>
+                {% for infoIndex, info in enumerate(user.note) %}
+                <tr>
+                    <td class="data-preview">
+                        <textarea disabled>{{ infoIndex+1 }}. {{ info.data }} </textarea>
+                        <button onclick="deleteNote( {{ info.id }} )">&times;</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <form action="" method="POST" class="chat-input">
+            <div class="textarea-bg">
+                <textarea type="text" name="text" rows="5" placeholder="Type a message" required></textarea>
+            </div>
+            <input type="submit" value="Send">
+        </form>        
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block script %}
+<script>
+    function deleteNote(noteId) {
+        fetch("/delete-note", {
+            method: "POST",
+            body: JSON.stringify({ noteId: noteId }),
+        }).then((_res) => {
+            window.location.href = "/todolist";
+        });
+    }
+</script>
+{% endblock %}
